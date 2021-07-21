@@ -1,4 +1,3 @@
-<?php $page="login";?>
 @extends('layout.mainlayout')
 @section('content')
 	<!-- Page Content -->
@@ -16,16 +15,27 @@
 									</div>
 									<div class="col-md-12 col-lg-6 login-right">
 										<div class="login-header">
-											<h3>Login <span>Doccure</span></h3>
+											<h3>Login to <span>6b Care</span></h3>
 										</div>
-										<form action="index">
+										<form method="POST" action="{{ route('login') }}">
+                        					@csrf
 											<div class="form-group form-focus">
-												<input type="email" class="form-control floating">
-												<label class="focus-label">Email</label>
+												<input type="text" class="form-control floating" name="phone" value="{{ old('phone') }}" required autocomplete="phone" autofocus>
+												<label class="focus-label">Phone</label>
+												@error('phone')
+													<div class="invalid-feedback d-block">
+														{{ $message }}
+													</div>
+												@enderror
 											</div>
 											<div class="form-group form-focus">
 												<input type="password" class="form-control floating">
 												<label class="focus-label">Password</label>
+												@error('password')
+													<div class="invalid-feedback d-block">
+														{{ $message }}
+													</div>
+												@enderror
 											</div>
 											<div class="text-right">
 												<a class="forgot-link" href="forgot-password">Forgot Password ?</a>

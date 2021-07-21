@@ -17,9 +17,13 @@ Route::get('/', 'PageController@index')->name('page.index');
 Route::get('/old', 'PageController@oldindex')->name('page.oldindex');
 
 Auth::routes();
-Route::get('/home', 'HomeController@index')->name('home');
    
 Route::group(['middleware' => ['auth']], function() {
+    Route::get('/admin-dashboard', 'AdminDashboardController@index')->name('admin_dashboard.index')->middleware('role:admin');
+    Route::get('/doctor-dashboard', 'DoctorDashboardController@index')->name('doctor_dashboard.index')->middleware('role:doctor');
+    Route::get('/patient-dashboard', 'PatientDashboardController@index')->name('patient_dashboard.index')->middleware('role:patient');
+
+    
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
     Route::resource('products','ProductController');
@@ -118,12 +122,12 @@ Route::get('/invoice-view', function () {
 Route::get('/blank-page', function () {
     return view('blank-page');
 })->name('blank-page');
-Route::get('/login', function () {
-    return view('login');
-})->name('login');
-Route::get('/register', function () {
-    return view('register');
-})->name('register');
+// Route::get('/login', function () {
+//     return view('login');
+// })->name('login');
+// Route::get('/register', function () {
+//     return view('register');
+// })->name('register');
 Route::get('/forgot-password', function () {
     return view('forgot-password');
 })->name('forgot-password');
@@ -192,12 +196,12 @@ Route::Group(['prefix' => 'admin'], function () {
         Route::get('/profile', function () {
         return view('admin.profile');
         })->name('profile');
-        Route::get('/login', function () {
-        return view('admin.login');
-        })->name('login');
-        Route::get('/register', function () {
-        return view('admin.register');
-        })->name('register');
+        // Route::get('/login', function () {
+        // return view('admin.login');
+        // })->name('login');
+        // Route::get('/register', function () {
+        // return view('admin.register');
+        // })->name('register');
         Route::get('/forgot-password', function () {
         return view('admin.forgot-password');
         })->name('forgot-password');

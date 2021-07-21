@@ -47,8 +47,8 @@
 									<ul>
 										<li><a href="search">Search for Doctors</a></li>
 										<li><a href="search">Search Hospital</a></li>
+										<li><a href="booking">Make Appoitment</a></li>
 										<li><a href="patient-dashboard">Our Service</a></li>
-										<li><a href="booking">Booking</a></li>
 										<li><a href="booking">Blogs</a></li>
 									</ul>
 								</div>

@@ -1,3 +1,13 @@
 node_modules
 .env
 .env.example
+public/storage
+storage
+bootstrap
+bootstrap/cache
+storage/framework
+storage/logs
+/public/storage
+storage/*.key
+/.vscode
+storage/logs/laravel.log

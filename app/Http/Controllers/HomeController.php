@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        dd('aa');
+        dd(\Auth::user()->hasRole());
         return view('index');
     }
 }

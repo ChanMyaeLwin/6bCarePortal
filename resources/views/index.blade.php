@@ -35,7 +35,7 @@
 				<div class="container-fluid">
 					<div class="section-header text-center">
 						<h2>Clinic and Specialities</h2>
-						<p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p class="sub-title">Our Partners and Our Specialities are willy to serve to your valueable ones. We service the following Cases.</p>
 					</div>
 					<div class="row justify-content-center">
 						<div class="col-md-9">
@@ -64,6 +64,42 @@
 								
 								<!-- Slider Item -->
 								<div class="speicality-item text-center">
+									<div class="speicality-img">
+										<img src="assets/img/specialities/specialities-03.png" class="img-fluid" alt="Speciality">
+										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
+									</div>	
+									<p>Orthopedic</p>	
+								</div>							
+								<!-- /Slider Item -->
+										<!-- Slider Item -->
+										<div class="speicality-item text-center">
+									<div class="speicality-img">
+										<img src="assets/img/specialities/specialities-03.png" class="img-fluid" alt="Speciality">
+										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
+									</div>	
+									<p>Orthopedic</p>	
+								</div>							
+								<!-- /Slider Item -->
+										<!-- Slider Item -->
+										<div class="speicality-item text-center">
+									<div class="speicality-img">
+										<img src="assets/img/specialities/specialities-03.png" class="img-fluid" alt="Speciality">
+										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
+									</div>	
+									<p>Orthopedic</p>	
+								</div>							
+								<!-- /Slider Item -->
+										<!-- Slider Item -->
+										<div class="speicality-item text-center">
+									<div class="speicality-img">
+										<img src="assets/img/specialities/specialities-03.png" class="img-fluid" alt="Speciality">
+										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
+									</div>	
+									<p>Orthopedic</p>	
+								</div>							
+								<!-- /Slider Item -->
+										<!-- Slider Item -->
+										<div class="speicality-item text-center">
 									<div class="speicality-img">
 										<img src="assets/img/specialities/specialities-03.png" class="img-fluid" alt="Speciality">
 										<span><i class="fa fa-circle" aria-hidden="true"></i></span>
@@ -107,12 +143,14 @@
 				   <div class="row">
 						<div class="col-lg-4">
 							<div class="section-header ">
-								<h2>Book Our Doctor</h2>
-								<p>Lorem Ipsum is simply dummy text </p>
+								<h2>Make an Appitment</h2>
+								<p>You can easily check our doctors </p>
 							</div>
 							<div class="about-content">
-								<p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum.</p>
-								<p>web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various versions have evolved over the years, sometimes</p>					
+								<p>Our Docutor are very patiant and expect in their area.</p>
+								<p>You can easily make Appitment. Appitment is good to save and will remine to you.</p>	
+								<p>You can easily make Appitment. Appitment is good to save and will remine to you.</p>					
+
 								<a href="javascript:;">Read More..</a>
 							</div>
 						</div>
@@ -577,7 +615,7 @@
 					<!-- Section Header -->
 					<div class="section-header text-center">
 						<h2>Blogs and News</h2>
-						<p class="sub-title">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+						<p class="sub-title">You can read our health blogs and updated health News.</p>
 					</div>
 					<!-- /Section Header -->
 					
