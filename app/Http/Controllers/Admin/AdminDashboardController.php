@@ -8,7 +8,6 @@ class AdminDashboardController extends Controller {
     $this->middleware('auth');
   }
   public function index() {
-      dd('admin');
-    return view('admin.dashboard');
+    return view('admin.admin-dashboard');
   }
 }

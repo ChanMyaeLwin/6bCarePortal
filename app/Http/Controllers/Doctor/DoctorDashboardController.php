@@ -9,7 +9,6 @@ class DoctorDashboardController extends Controller {
     $this->middleware('auth');
   }
   public function index() {
-      dd('doctor');
-    return view('admin.dashboard');
+      return view('doctor.doctor-dashboard');
   }
 }

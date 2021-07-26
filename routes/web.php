@@ -14,33 +14,24 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'PageController@index')->name('page.index');
-Route::get('/old', 'PageController@oldindex')->name('page.oldindex');
+Route::get('/index', 'PageController@oldindex')->name('page.oldindex');
 
 Auth::routes();
    
 Route::group(['middleware' => ['auth']], function() {
-    Route::get('/admin-dashboard', 'AdminDashboardController@index')->name('admin_dashboard.index')->middleware('role:admin');
-    Route::get('/doctor-dashboard', 'DoctorDashboardController@index')->name('doctor_dashboard.index')->middleware('role:doctor');
-    Route::get('/patient-dashboard', 'PatientDashboardController@index')->name('patient_dashboard.index')->middleware('role:patient');
+    Route::get('/admin-dashboard', 'Admin\AdminDashboardController@index')->name('admin_dashboard.index');
+    Route::get('/doctor-dashboard', 'Doctor\DoctorDashboardController@index')->name('doctor_dashboard.index');
+    Route::get('/patient-dashboard', 'Patient\PatientDashboardController@index')->name('patient_dashboard.index');
 
+    Route::group(['middleware' => 'can:role-create'], function(){
+        Route::get('/doctor-list', 'Admin\DoctorController@index')->name('admin_doctor.index');
     
+    });
     Route::resource('roles','RoleController');
     Route::resource('users','UserController');
-    Route::resource('products','ProductController');
 });
 
     
-//     Route::get('/home', function () {
-//         return view('index');
-//     })->name('page');
-
-Route::get('/index', function () {
-    return view('index');
-})->name('page');
-
-Route::get('/doctor-dashboard', function () {
-    return view('doctor-dashboard');
-});
 Route::get('/appointments', function () {
     return view('appointments');
 });
@@ -89,9 +80,6 @@ Route::get('/checkout', function () {
 Route::get('/booking-success', function () {
     return view('booking-success');
 })->name('booking-success');
-Route::get('/patient-dashboard', function () {
-    return view('patient-dashboard');
-})->name('patient-dashboard');
 Route::get('/favourites', function () {
     return view('favourites');
 })->name('favourites');
@@ -122,12 +110,6 @@ Route::get('/invoice-view', function () {
 Route::get('/blank-page', function () {
     return view('blank-page');
 })->name('blank-page');
-// Route::get('/login', function () {
-//     return view('login');
-// })->name('login');
-// Route::get('/register', function () {
-//     return view('register');
-// })->name('register');
 Route::get('/forgot-password', function () {
     return view('forgot-password');
 })->name('forgot-password');
@@ -175,9 +157,6 @@ Route::Group(['prefix' => 'admin'], function () {
         Route::get('/specialities', function () {
         return view('admin.specialities');
         })->name('specialities');
-        Route::get('/doctor-list', function () {
-        return view('admin.doctor-list');
-        })->name('doctor-list');
         Route::get('/patient-list', function () {
         return view('admin.patient-list');
         })->name('patient-list');

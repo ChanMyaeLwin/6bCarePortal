@@ -18,11 +18,13 @@ class PageController extends Controller
 
     public function index()
     {
+        // dd(auth()->user()->hasRole('patient'));
         return view('index');
     }
     
     public function oldindex()
     {
+        // dd(auth()->user()->hasRole('doctor'));
         return view('oldindex');
     }
 }

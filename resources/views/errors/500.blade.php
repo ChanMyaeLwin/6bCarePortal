@@ -1,4 +1,8 @@
+
+
 @extends('layout.mainlayout_admin')
+@extends('layout.mainlayout')
+@extends('layout.mainlayout')
 @section('content')	
 <!-- Main Wrapper -->
 <div class="main-wrapper error-page">

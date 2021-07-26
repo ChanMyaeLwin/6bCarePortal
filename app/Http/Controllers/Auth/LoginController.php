@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use App\Providers\RouteServiceProvider;
@@ -81,14 +82,14 @@ class LoginController extends Controller
      */
     protected function authenticated(Request $request, $user)
     {
-        dd($user);
-        if ($user->is_admin) {
+        if($user->hasRole('admin')){
             return redirect()->to('/admin-dashboard');
-        }
-        if ($user->is_admin) {
+        }elseif($user->hasRole('doctor')){
             return redirect()->to('/doctor-dashboard');
+        }elseif($user->hasRole('patient')){
+            return redirect()->to('/patient-dashboard');
+        }else{
+            return redirect()->to('/'); 
         }
-
-        return redirect()->to('/patient-dashboard');
     }
 }

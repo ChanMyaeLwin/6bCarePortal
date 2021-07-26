@@ -1,13 +1,13 @@
 <?php
-namespace App\Http\Controllers\Patient;
+namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
-class PatientDashboardController extends Controller {
+class DoctorController extends Controller {
   public function __construct() {
     $this->middleware('auth');
   }
   public function index() {
-    return view('patient.patient-dashboard');
+    return view('admin.doctor-list');
   }
 }

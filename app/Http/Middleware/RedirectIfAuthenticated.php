@@ -20,22 +20,15 @@ class RedirectIfAuthenticated
     {
 
         if (Auth::guard($guard)->check()) {
-            $role = Auth::user()->role; 
-            dd($role);
-            switch ($role) {
-                case 'admin':
-                    return '/admin-dashboard';
-                    break;
-                case 'doctor':
-                    return '/doctor-dashboard';
-                    break;
-                case 'patient':
-                    return '/patient-dashboard';
-                    break;  
-               
-                default:
-                    return '/'; 
-                break;
+            $user = Auth::user(); 
+            if($user->hasRole('admin')){
+                return '/admin-dashboard';
+            }elseif($user->hasRole('doctor')){
+                return '/doctor-dashboard';
+            }elseif($user->hasRole('patient')){
+                return '/patient-dashboard';
+            }else{
+                return '/'; 
             }
           }
 

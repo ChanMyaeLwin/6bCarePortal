@@ -29,7 +29,7 @@
 												@enderror
 											</div>
 											<div class="form-group form-focus">
-												<input type="password" class="form-control floating">
+												<input type="password" name="password" class="form-control floating">
 												<label class="focus-label">Password</label>
 												@error('password')
 													<div class="invalid-feedback d-block">

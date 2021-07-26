@@ -67,55 +67,45 @@
 							</li>
 							@endguest
 						</li>
-						@can('patient_header')
-						<li class="nav-item dropdown has-arrow logged-item">
-							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
-								</span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right">
-								<div class="user-header">
-									<div class="avatar avatar-sm">
-										<img src="assets/img/patients/patient.jpg" alt="User Image" class="avatar-img rounded-circle">
+						@guest
+						@else
+							@if(auth()->user()->hasRole('admin') || auth()->user()->hasRole('doctor') || auth()->user()->hasRole('patient'))
+							<li class="nav-item dropdown has-arrow logged-item">
+								<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
+									<span class="user-img">
+										<img class="rounded-circle" src="assets/img/patients/patient.jpg" width="31" alt="Ryan Taylor">
+									</span>
+								</a>
+								<div class="dropdown-menu dropdown-menu-right">
+									<div class="user-header">
+										<div class="avatar avatar-sm">
+											<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
+										</div>
+										<div class="user-text">
+											<h6>{{auth()->user()->name}}</h6>
+											<p class="text-muted mb-0">{{auth()->user()->roles[0]['name']}}</p>
+										</div>
 									</div>
-									<div class="user-text">
-										<h6>Richard Wilson</h6>
-										<p class="text-muted mb-0">Patient</p>
-									</div>
+									<a class="dropdown-item" 
+									
+										@if(auth()->user()->hasRole('admin'))
+											href="admin-dashboard"
+										@elseif(auth()->user()->hasRole('doctor'))
+											href="doctor-dashboard"
+										@elseif(auth()->user()->hasRole('patient'))
+											href="patient-dashboard"
+										@endif
+									
+									>Dashboard</a>
+									<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
+										document.getElementById('logout-form').submit();">Logout</a>
+										<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+											@csrf
+										</form>
 								</div>
-								<a class="dropdown-item" href="patient-dashboard">Dashboard</a>
-								<a class="dropdown-item" href="profile-settings">Profile Settings</a>
-								<a class="dropdown-item" href="login">Logout</a>
-							</div>
-						</li>
-						@endcan
-						<!-- User Menu -->
-						<li class="nav-item dropdown has-arrow logged-item">
-							<a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">
-								<span class="user-img">
-									<img class="rounded-circle" src="assets/img/doctors/doctor-thumb-02.jpg" width="31" alt="Darren Elder">
-								</span>
-							</a>
-							<div class="dropdown-menu dropdown-menu-right">
-								<div class="user-header">
-									<div class="avatar avatar-sm">
-										<img src="assets/img/doctors/doctor-thumb-02.jpg" alt="User Image" class="avatar-img rounded-circle">
-									</div>
-									<div class="user-text">
-										<h6>Darren Elder</h6>
-										<p class="text-muted mb-0">Doctor</p>
-									</div>
-								</div>
-								<a class="dropdown-item" href="doctor-dashboard">Dashboard</a>
-								<a class="dropdown-item" href="doctor-profile-settings">Profile Settings</a>
-								<a class="dropdown-item" href="{{ route('logout') }}" onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">Logout</a>
-								<form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-							</div>
-						</li>
+							</li>
+							@endif
+						@endguest
 						<!-- /User Menu -->
 					</ul>
 				</nav>

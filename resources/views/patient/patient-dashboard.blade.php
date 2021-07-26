@@ -1,4 +1,3 @@
-<?php $page="patient-dashboard";?>
 @extends('layout.mainlayout')
 @section('content')
 <!-- Breadcrumb -->
